@@ -7,6 +7,10 @@ Hàm tính ước chung lớn nhất (GCD) của hai số nguyên
 Đầu ra: giá trị GCD của a và b
  */
 inline ll gcd(ll a, ll b){ll r; while(b){r=a%b;a=b;b=r;} return a;}
+/*
+Lớp PhanSo để làm việc với phân số
+Gồm các thuộc tính: tử số (tu) và mẫu số (mau)
+ */
 class PhanSo{
     private:
         int tu, mau; // Tử số và mẫu số của phân số
@@ -53,14 +57,10 @@ Hàm xuất phân số ra màn hình
 Đầu ra: phân số a được in ra màn hình
  */
 ostream& operator<<(ostream &out, PhanSo a){
-    if(!a.mau){
-        out<<"Phan so khong xac dinh"<<endl;
-        return out;
-    }
-    else if(!a.tu){
+    if(!a.tu){
         out<<"Phan so la so 0"; return out;
     }
-    if(a.mau==1) out<<"Phan So la so "<<a.tu;
+    else if(a.mau==1) out<<"Phan So la so "<<a.tu;
     else out<<"Phan So la so "<<a.tu<<"/"<<a.mau;
     return out;
 }
