@@ -53,14 +53,10 @@ Hàm xuất phân số ra màn hình
 Đầu ra: phân số a được in ra màn hình
  */
 ostream& operator<<(ostream &out, PhanSo a){
-    if(!a.mau){
-        out<<"Phan so khong xac dinh"<<endl;
-        return out;
-    }
-    else if(!a.tu){
+    if(!a.tu){
         out<<"Phan so la so 0"; return out;
     }
-    if(a.mau==1) out<<"Phan So la so "<<a.tu;
+    else if(a.mau==1) out<<"Phan So la so "<<a.tu;
     else out<<"Phan So la so "<<a.tu<<"/"<<a.mau;
     return out;
 }
