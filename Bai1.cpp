@@ -7,6 +7,10 @@ Hàm tính ước chung lớn nhất (GCD) của hai số nguyên
 Đầu ra: giá trị GCD của a và b
  */
 inline ll gcd(ll a, ll b){ll r; while(b){r=a%b;a=b;b=r;} return a;}
+/*
+Lớp PhanSo để làm việc với phân số
+Gồm các thuộc tính: tử số (tu) và mẫu số (mau)
+ */
 class PhanSo{
     private:
         int tu, mau; // Tử số và mẫu số của phân số
