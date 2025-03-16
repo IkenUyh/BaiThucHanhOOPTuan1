@@ -168,7 +168,7 @@ void HocSinh::find(const vector<HocSinh>& nums, const string& keyword){
             cout<<x; found=true;
         }
     }
-    if(!found) cout<<"Khong tim thay hoc sinh chua "<<keyword<<endl<<"===================================\n";;
+    if(!found) cout<<"Khong tim thay hoc sinh chua "<<keyword<<endl<<"===================================\n";
 }
 int main(){
     cout<<"Nhap so luong hoc sinh: ";
