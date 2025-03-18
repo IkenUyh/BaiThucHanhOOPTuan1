@@ -36,11 +36,30 @@ double sincalculate::calculate(){
     }
     return res;
 }
+/*
+Hàm chuyển đổi chuỗi nhập vào thành giá trị radian
+Đầu vào: string input - giá trị góc có thể ở dạng số thực hoặc bội số của pi
+Đầu ra: double - giá trị góc đã chuyển thành radian
+*/
+double convertToRadian(string input) {
+    // Nếu chứa "pi" thì xử lý dạng bội số của π
+    size_t pos=input.find("pi");
+    if(pos!=string::npos) {
+        double coefficient=1.0; // Hệ số nhân với π
+        if(pos>0) { // Nếu có số trước "pi"
+            coefficient=stod(input.substr(0, pos));
+        }
+        return coefficient*M_PI; // Trả về giá trị nhân với π
+    } 
+    return stod(input); // Nếu không có "pi", chuyển thành số thực bình thường
+}
 int main(){
-    double x;
-    cout<<"Nhap gia tri x (don vi radian): "; cin>>x;
-    sincalculate tmp(x); // Khởi tạo đối tượng sincalculate với giá trị x nhập từ bàn phím
+    string input;
+    cout<<"Nhap gia tri x (co the nhap dang so hoac dang pi, vi du: pi/6, 0.5, 2pi): ";
+    cin>>input;
+    double x=convertToRadian(input); // Chuyển đổi về radian
+    sincalculate tmp(x); // Khởi tạo đối tượng
     double result=tmp.calculate(); // Gọi hàm tính sin(x)
-    cout<<"Sin("<<x<<") sap xi bang "<<result<<endl;
+    cout<<"Sin("<<input<<") sap xi bang "<<result<<endl;
     return 0;
 }
